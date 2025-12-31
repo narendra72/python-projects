@@ -1,50 +1,38 @@
 import random
-# game snak water gun
+"""
+snake -> 0
+water -> 1
+gun -> 2 
+"""
 
 
-def game(comp, user):
-    if comp == user:
-        return None
+def check(comp, user):
+  if comp == user:
+    return 0
 
-    if comp == 's':
-        if user == 'w':
-            return False
-        elif user == 'g':
-            return True
+  if (comp == 0 and user == 1):
+    return -1
 
-    if comp == 'w':
-        if user == 'g':
-            return False
-        elif user == 's':
-            return True
+  if (comp == 1 and user == 2):
+    return -1
 
-    if comp == 'g':
-        if user == 's':
-            return False
-        elif user == 'w':
-            return True
+  if (comp == 2 and user == 0):
+    return -1
+
+  return 1
 
 
-print("Computer turn: Snake(s) Water(w) or Gun(g)?")
-randNo = random.randint(1, 3)
+comp = random.randint(0, 2)  # computer choose random number
+user = int(input("0 for Snake, 1 for water and 2 for Gun:\n"))
 
-if randNo == 1:
-    comp = 's'
-elif randNo == 2:
-    comp = 'w'
+score = check(comp, user)
+
+print("You: ", user)
+print("Computer: ", comp)
+
+if (score == 0):
+  print("draw")
+elif (score == -1):
+  print("You Lose")
 else:
-    comp = 'g'
-
-user = input("Your turn: Snake(s) Water(w) or Gun(g)? ")
-
-result = game(comp, user)
-
-print("Computer chose:", comp)
-print("You chose:", user)
-
-if result is None:
-    print("🤝 Game Tie!")
-elif result:
-    print("🎉 You Win!")
-else:
-    print("😢 You Lose!")
+  print("You Won")
