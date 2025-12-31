@@ -1,5 +1,6 @@
 import random
-# game 
+# game snak water gun
+
 
 def game(comp, user):
     if comp == user:
