@@ -1,5 +1,6 @@
 import random
 
+
 def game(comp, user):
     if comp == user:
         return None
