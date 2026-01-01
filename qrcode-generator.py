@@ -1,9 +1,12 @@
 import qrcode
 
-data = "https://www.google.com"
+data = input("Enter text/Link for QR code: ")
 
-qr = qrcode.make(data)
+if not data.strip():   # strip() removes leading and trailing whitespace
+  print("Input can not be empty")
+else:
+  qr = qrcode.make(data)
+  qr.save("QR_Code_image.png")
+  qr.show()   
 
-qr.show()   # 👈 direct display, save nahi hoga
-
-print("QR Code displayed successfully")
+print("QR Code displayed succaessfully and saved as QR_Code_image.png")
