@@ -6,7 +6,7 @@ gun -> 2
 """
 
 
-def check(comp, user):
+def check(comp , user):
   if comp == user:
     return 0
 
